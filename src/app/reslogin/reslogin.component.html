@@ -1,0 +1,120 @@
+<div class="container"> 
+    <div class="card ">
+    <div class="row" >
+     <div class="col-12">
+        <div class="row form-size" >
+                <div class="col-6  pb-2 pt-2 cjustify-content-center align-items-center d-flux text-center"  >
+                    <div  >
+                        <button  id="color"  (click)="onHdrBt1SignIn()" class="btn btn-dark "  appMouseHover  >SIGNIN</button>
+                    </div>
+                    <hr >
+                </div>
+                <div class="col-6 pb-2 pt-2 justify-content-center align-items-center  d-flux text-center" >
+                    <form [formGroup]="form" (ngSubmit)="onHdrBt2regi()" >
+                        <div >
+                            <button (click)="onHdrBt2regi()" class="btn btn-dark " appMouseHover  >CREATE AN ACCOUNT</button>
+                        </div>
+                        <hr >
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div class="row ">
+                <div class="col-12">
+                    <form [formGroup]="forming" (ngSubmit)="onBtoneSubmitt()"class="form-size">
+                        <div class="form-group" *ngIf="isVisibleSin">
+                            <label for="emaillog">EMAIL*</label>
+                             <input formControlName="emaillog" id="emaillog" type="email" class="form-control" placeholder="Enter Email " name="emaillog" maxlength="50">
+                                <div *ngIf="(isSubmitting && signInForm['emaillog'].errors) || signInForm['emaillog'].errors && signInForm['emaillog'].touched " class="red">
+                                    <div *ngIf="signInForm['emaillog'].errors && signInForm['emaillog'].errors['required']">{{emailRequired}}</div>
+                                    <div *ngIf="(signInForm['emaillog'].errors['pattern']) && !(signInForm['emaillog'].errors['required']) ">{{emailPattrenOfEmailRequired}}</div>
+                                </div>
+                           
+                            <label>PASSWORD*</label>
+                            <input type="password" class="form-control" placeholder="Enter Password" name="passwordLog" formControlName="passwordLog" maxlength="18" >
+                                <div *ngIf="(isSubmitting && signInForm['passwordLog'].errors) || signInForm['passwordLog'].errors && signInForm['passwordLog'].touched " class="red">
+                                    <div *ngIf="signInForm['passwordLog'].errors && signInForm['passwordLog'].errors['required']">{{passwordRequired}}</div>
+                                    <div *ngIf="(signInForm['passwordLog'].errors['minlength']) && !(signInForm['passwordLog'].errors['required']) ">{{minLengthOfPassword}}</div>
+                                </div>  
+                             
+                            <div class=" justify-content-center align-items-center d-flux text-center m-3 ">
+                                <button class="btn btn-dark" (click)="onBtoneSubmitt()" appMouseHover>SIGNIN</button>
+                            </div>
+                       
+                             <a (click)="forgotPswword()" >ForgotPassword?</a>
+                        </div>
+                    </form>
+
+                    <form [formGroup]="form" class="form-size">
+                        <div class="form-group" *ngIf="isVisibleregi">
+                            <div class="maindiv">
+                                <label for="name">NAME*</label>
+                                <input appOnlyalphabet formControlName="name" id="name" type="text" class="form-control" placeholder="Full Name " [attr.disabled]='disabled ? true : null' maxlength="30">
+                                <div *ngIf="(isSubmitted && f['name'].errors) || f['name'].errors && f['name'].touched " class="red">
+                                    <div *ngIf="f['name'].errors && f['name'].errors['required']">{{fullNameRequired}}</div>
+                                    <div *ngIf="(f['name'].errors['minlength'])  ">{{minLengthOfName}}</div>
+                                </div> 
+                            </div>
+                            
+                        
+                            <label for="email">EMAIL*</label>
+                            <input formControlName="email" id="email" type="email" class="form-control" placeholder="Enter Email " name="email" [attr.disabled]='disabled ? true : null' maxlength="50">
+                                <div *ngIf="(isSubmitted && f['email'].errors) || f['email'].errors && f['email'].touched " class="red">
+                                    <div *ngIf="f['email'].errors && f['email'].errors['required']">Enter Email.</div>
+                                    <div *ngIf="(f['email'].errors['pattern']) && !(f['email'].errors['required']) ">{{emailPattrenOfEmailRequired}}</div>
+                                </div>
+                           <div> 
+                            <label for="phno">MOBILE NO*</label>
+                            <input appOnlyNumbers formControlName="phno" maxlength="10" id="phno" type="text" class="form-control"placeholder="Mobile Number" [attr.disabled]='disabled ? true : null' >
+                                <div *ngIf="(isSubmitted && f['phno'].errors) || f['phno'].errors && f['phno'].touched " class="red">
+                                    <div *ngIf="f['phno'].errors && f['phno'].errors['required']">{{mobileNumberRequired}}</div>
+                                    <div *ngIf="(f['phno'].errors['pattern']) ">{{mobilenumberPattren}}</div>
+                                </div>
+                            </div>
+                            
+                          <div class="maindiv">  
+                            <label>PASSWORD*</label>
+                            <input [type]="password" class="form-control floating-Right" placeholder="Password" name="password"formControlName="password" maxlength="18">
+                            <!-- <button (click)="onClick()" appMouseHover>
+                                    <i class="fa fa-eye" aria-hidden="true" *ngIf="!show"></i>
+                                    <i class="fa fa-eye-slash" aria-hidden="true" *ngIf="show"></i>
+                                  </button> -->
+                                <div *ngIf="(isSubmitted && f['password'].errors) || f['password'].errors && f['password'].touched " class="red">
+                                    <div *ngIf="f['password'].errors && f['password'].errors['required']">{{passwordRequired}}</div>
+                                    <div *ngIf="(f['password'].errors['minlength']) && !(f['password'].errors['required']) ">{{minLengthOfPassword}}</div>
+                                </div>
+                            </div>
+                          
+                            <div>
+                                <label>CONFIRM PASSWORD*</label>
+                            <input type="password" class="form-control" placeholder="confirmpassword" name="confirmpassword" formControlName="confirmpassword">
+                            <div *ngIf="(isSubmitted && f['confirmpassword'].errors) || f['confirmpassword'].errors && f['confirmpassword'].touched " class="red">
+                                <div *ngIf="f['confirmpassword'].errors && f['confirmpassword'].errors['required']">{{confirmPasswordRequired}}</div>
+                                <div *ngIf=" f['confirmpassword'].errors && f['confirmpassword'].errors['Match']"class="red">{{matchConfirmPassword}}</div>
+                                <div *ngIf="(f['confirmpassword'].errors['minlength']) && !(f['confirmpassword'].errors['required']) ">{{minLengthConfirmPasswordRequired}}</div>
+                            </div>
+                            </div>
+                            
+                            <label>GENDER*</label>
+                            <div>
+                                <div class="radio-inline">
+                                    <input type="radio" name="gender" value="male" formControlName="gender"[attr.disabled]='disabled ? true : null'>Male
+                                    <input type="radio" name="gender" value="female" formControlName="gender"[attr.disabled]='disabled ? true : null'>Female
+                                    <div *ngIf=" isSubmitted && f['gender'].errors && f['gender'].errors['required']"class="red">{{genderRequired}}</div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="justify-content-center align-items-center d-flux text-center">
+                                <button class="btn btn-dark" (click)="onBtTwoSubmit()"*ngIf=" isRegisterSubmitting" appMouseHover>CREATE MY ACCOUNT</button>
+                            </div>
+                        </div>
+                    </form>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+</div>
+
+

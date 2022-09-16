@@ -1,0 +1,13 @@
+export const FirstNameRequired = 'Enter First Name.'; 
+export const PasswordRequired = 'Enter Password.';
+export const MatchConfirmPasswordRequired= "Password Doesn't Match.";
+export const MinLengthOfPasswordRequired = "Password Should Contain Atleast 5 Charactors .";
+export const FullNameRequired = 'Enter Full Name.';
+export const MinLengthOfNameRequired = ' Name Consits Atleast 3 Characters.';
+export const EmailRequired = 'Enter Email.';
+export const EmailPattrenRequired = 'Invalid Email.';
+export const MobileNumberRequired = 'Enter Mobile Number.';
+export const MobilenumberPattrenRequired = 'Mobile Number should contain 10 digits and start with 6/7/8/9.';
+export const ConfirmPasswordRequired = 'Enter ConfirmPassword.';
+export const ConfirmPasswordMinLengthRequired = ' ConfirmPassword  Should Contain Atleast 5 Charactors ..';
+export const GenderRequired = 'Select Gender.';

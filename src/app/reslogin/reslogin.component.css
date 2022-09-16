@@ -1,0 +1,94 @@
+.red{ 
+    color: rgba(248, 41, 9, 0.871);
+    
+    
+}
+.name{
+    text-align: center;
+}
+#set{
+    align-items: center;
+}
+.form-control{
+   
+    border-color: rgb(163, 192, 36);
+    border: 1px solid;
+}
+
+#email1{
+    border-color: red;
+}
+#emaillog.ng-touched.ng-invalid{
+  border-color: rgb(252, 13, 21);
+}
+.clr{
+    text-align: center;
+    color: rgb(8, 9, 7);
+    background: rgb(220, 213, 213);
+    border: 0px solid;
+}
+span{
+    color: white;
+    margin-right: 20px;
+}
+ .touched .invalid{
+    color: red;
+   
+  }
+  .form-control.ng-touched.ng-invalid{
+    border: 1px solid;
+    border-color: red;
+  }
+  .form-control.ng-touched.ng-valid{
+    border: 1px solid;
+    border-color: rgb(59, 218, 23);
+  }
+ .btn-primary{
+   align-content: center;
+  }
+  .onBtoneSubmitt.ng-invalid{
+    border: 1px solid;
+    border-color: red;
+  }
+  
+#adju{
+  align-content: center;
+}
+a{
+  cursor: default;
+font-weight: bold;
+text-decoration: underline !important;
+  color: black;
+  cursor: pointer;
+  
+}
+.maindiv {
+  padding-bottom: 10px;
+}
+.maindiv label{
+font-size:13px;
+}
+label{
+  color: rgba(18, 1, 1, 0.937);
+  font-size: large;
+}
+.form-size{
+  max-width: 450px;
+  margin: auto;
+}
+.card{
+  width: 100%;
+}
+
+/* hr{
+  position: relative;
+  top: 20px;
+  border: none;
+  height: 12px;
+  background: black;
+  margin-bottom: 50px;
+} */
+/* .width-alignment {
+  margin-left: 250px;
+  margin-right: 250px;
+} */
